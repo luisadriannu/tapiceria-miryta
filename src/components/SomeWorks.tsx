@@ -65,7 +65,8 @@ export const SomeWorks = () => {
 };
 
 const MainContentWorks = styled.section`
-  background-color: #fafbf3;
+  color: #fff;
+  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,5 +78,9 @@ const Card = styled.div`
 
   h4 {
     margin: 0.75rem 0 0;
+  }
+
+  a {
+    color: #fff;
   }
 `;

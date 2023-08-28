@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
-
 import { HomeHeroImage } from "../components/HomeHeroImage";
 import { SomeWorks } from "../components/SomeWorks";
 

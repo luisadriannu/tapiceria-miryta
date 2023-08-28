@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
+import "../components/StylesHeader.css";
 
 const variants = {
   open: {
@@ -10,8 +11,8 @@ const variants = {
   },
 };
 
-export const Navigation = () => (
-  <motion.div variants={variants}>
-    <MenuItem />
+export const Navigation = ({ menuOpen, toggle }) => (
+  <motion.div className={menuOpen ? "" : "pointer"} variants={variants}>
+    <MenuItem toggle={toggle} />
   </motion.div>
 );

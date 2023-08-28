@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, sync, useCycle } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "../hooks/useDimentions";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
@@ -16,7 +16,6 @@ const sidebar = {
   closed: {
     clipPath: "circle(30px at 40px 40px)",
     transition: {
-      delay: 0.5,
       type: "spring",
       stiffness: 400,
       damping: 40,
@@ -29,17 +28,31 @@ export const Header = () => {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
+  const scrollTop = () => {
+    scrollTo({
+      top: 0,
+    });
+  };
+
   return (
-    <motion.nav
-      className="nav"
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      custom={height}
-      ref={containerRef}
-    >
-      <motion.div className="background" variants={sidebar} />
-      <Navigation />
-      <MenuToggle toggle={() => toggleOpen()} />
-    </motion.nav>
+    <>
+      <motion.nav
+        className={`nav ${isOpen ? "" : "pointer-none"}`}
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+        custom={height}
+        ref={containerRef}
+      >
+        <motion.div className="background" variants={sidebar} />
+        <MenuToggle toggle={() => toggleOpen()} />
+        <Navigation
+          menuOpen={isOpen}
+          toggle={() => {
+            toggleOpen();
+            scrollTop();
+          }}
+        />
+      </motion.nav>
+    </>
   );
 };

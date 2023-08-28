@@ -7,8 +7,10 @@ export const HomeHeroImage = () => {
       <img src={GetImageUrl("home-image")} alt="Tapizado de Sala" />
       <div>
         <p>
-          Somos los mejores en tapicería en CD. Altamirano. Tenemos variedad de
-          telas y pieles que mas le sea de su agrado
+          <i>
+            Somos los mejores en tapicería en CD. Altamirano. Tenemos variedad
+            de telas y pieles que mas le sea de su agrado
+          </i>
         </p>
       </div>
     </ContentBackgroundImage>

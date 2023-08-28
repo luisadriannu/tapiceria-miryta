@@ -18,27 +18,32 @@ const variants = {
   },
 };
 
-export const MenuItem = () => {
-  const style = { color: "#000" };
+export const MenuItem = ({ toggle }) => {
+  const style = { color: "#fff" };
   return (
     <motion.ul variants={variants}>
       <li>
-        <NavLink style={style} to="#">
+        <NavLink onClick={toggle} style={style} to="/">
           Inicio
         </NavLink>
       </li>
       <li>
-        <NavLink style={style} to="#">
+        <NavLink onClick={toggle} style={style} to="/servicios">
           Servicios
         </NavLink>
       </li>
       <li>
-        <NavLink style={style} to="#">
+        <NavLink onClick={toggle} style={style} to="/">
+          Trabajos
+        </NavLink>
+      </li>
+      <li>
+        <NavLink onClick={toggle} style={style} to="/acerca">
           Acerca de
         </NavLink>
       </li>
       <li>
-        <NavLink style={style} to="#">
+        <NavLink onClick={toggle} style={style} to="/contacto">
           Contacto
         </NavLink>
       </li>

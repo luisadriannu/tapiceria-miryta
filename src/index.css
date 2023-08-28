@@ -34,11 +34,20 @@ body {
 /* Prueba */
 .nav {
   position: fixed;
-  width: 80%;
   top: 0;
   left: 0;
   bottom: 0;
+  z-index: 995;
   width: 300px;
+  /* background-color: red; */
+  /* pointer-events: none; */
+}
+
+.pointer-none {
+  pointer-events: none;
+}
+
+.button-menu {
   z-index: 999;
 }
 
@@ -52,15 +61,15 @@ h1 {
 }
 
 h2 {
-  font-size: var(--step-4);
+  font-size: var(--step-5);
 }
 
 h3 {
-  font-size: var(--step-2);
+  font-size: var(--step-4);
 }
 
 h4 {
-  font-size: var(--step-0);
+  font-size: var(--step-1);
 }
 
 /* ********** Utilities ********** */
@@ -80,7 +89,11 @@ h4 {
   left: 0;
   bottom: 0;
   width: 300px;
-  background: #e7eacc;
+  background: #000;
+}
+
+.d-none {
+  display: none;
 }
 
 button {
@@ -149,4 +162,135 @@ li {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+/* ***** Loader ***** */
+.modal {
+  background-color: rgba(34, 34, 34, 0.346);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-loader {
+  background-color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.37);
+}
+
+.content-loader h4 {
+  margin: 0;
+}
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #bb1616;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #bb1616;
+}
+
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+/* ***** Message ***** */
+.message {
+  max-width: 400px;
+  color: #fff;
+  background-color: #bb1616;
+  padding: 1.2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0px 0px 7px 3px rgba(0, 0, 0, 0.37);
+}
+
+.message h4 {
+  margin: 0;
+}
+
+.message i {
+  font-size: 2.5rem;
+}
+
+.modal-transparent {
+  background-color: transparent;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  padding: 0 1rem;
 }

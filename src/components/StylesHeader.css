@@ -1,0 +1,7 @@
+.pointer {
+  pointer-events: none;
+}
+
+.button-menu {
+  pointer-events: all;
+}
