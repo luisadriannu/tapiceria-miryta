@@ -18,7 +18,11 @@ const variants = {
   },
 };
 
-export const MenuItem = ({ toggle }) => {
+interface Toggle {
+  toggle: () => void;
+}
+
+export const MenuItem: React.FC<Toggle> = ({ toggle }) => {
   const style = { color: "#fff" };
   return (
     <motion.ul variants={variants}>

@@ -11,8 +11,13 @@ const variants = {
   },
 };
 
-export const Navigation = ({ menuOpen, toggle }) => (
-  <motion.div className={menuOpen ? "" : "pointer"} variants={variants}>
+interface Toggle {
+  toggle: () => void;
+  menuOpen: boolean;
+}
+
+export const Navigation: React.FC<Toggle> = ({ menuOpen, toggle }) => (
+  <motion.div className={menuOpen ? " " : "pointer"} variants={variants}>
     <MenuItem toggle={toggle} />
   </motion.div>
 );
