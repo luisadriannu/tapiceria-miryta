@@ -49,28 +49,41 @@ export const SomeWorks = () => {
           perferendis ducimus voluptatem, tempore ipsam ipsum illum modi neque
           fugit rerum. Quis, corrupti officia?
         </p>
-        {data.map((item, index) => {
-          return (
-            <Card key={index}>
-              <img src={item.image} alt={`Trabajo ${item.id}`} />
-              <h4>{item.title}</h4>
-              <p>{item.description}</p>
-              <NavLink to={item.link}>Ver más detalles</NavLink>
-            </Card>
-          );
-        })}
+        <ContentCards>
+          {data.map((item, index) => {
+            return (
+              <Card key={index}>
+                <img src={item.image} alt={`Trabajo ${item.id}`} />
+                <h4>{item.title}</h4>
+                <p>{item.description}</p>
+                <div>
+                  <NavLink to={item.link}>Ver más detalles</NavLink>
+                </div>
+              </Card>
+            );
+          })}
+        </ContentCards>
       </div>
     </MainContentWorks>
   );
 };
 
 const MainContentWorks = styled.section`
-  color: #fff;
-  background-color: #000;
+  background-color: #fafbf3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h2 {
+    font-weight: 900;
+  }
+`;
+
+const ContentCards = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `;
 
 const Card = styled.div`
@@ -80,7 +93,14 @@ const Card = styled.div`
     margin: 0.75rem 0 0;
   }
 
-  a {
-    color: #fff;
+  p {
+    margin: 1.5rem 0 0 0;
+  }
+
+  div {
+    margin-top: 1.5rem;
+    a {
+      color: #000;
+    }
   }
 `;

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 import "../components/StylesHeader.css";
+import "./StylesHeader.css";
 
 const variants = {
   open: {

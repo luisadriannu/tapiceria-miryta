@@ -1,6 +1,12 @@
 import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
 
+const scrollTop = () => {
+  scrollTo({
+    top: 0,
+  });
+};
+
 export const Services = () => {
   return (
     <section className="container">
@@ -76,7 +82,9 @@ export const Services = () => {
             </div>
             <ContentButton>
               <div>
-                <NavLink to="/contacto">Contacto</NavLink>
+                <NavLink onClick={scrollTop} to="/contacto">
+                  Contacto
+                </NavLink>
               </div>
             </ContentButton>
           </div>

@@ -3,6 +3,7 @@ import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "../hooks/useDimentions";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
+import "./StylesHeader.css";
 
 const sidebar = {
   open: (height = 1000) => ({

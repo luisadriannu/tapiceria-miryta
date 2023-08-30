@@ -1,8 +1,10 @@
+import { AnimatePresence } from "framer-motion";
 import Loading from "../components/Loader";
 import Message from "../components/Message";
 import { useForm } from "../hooks/useForm";
 import { ContentMain } from "./Services";
 import { styled } from "styled-components";
+import { useEffect, useState } from "react";
 
 interface ValidateForm {
   name: string;
@@ -35,8 +37,6 @@ const validationsForm = (
   const regexName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
   const regexPhone = /^\d{3}-?\d{3}-?\d{4}$/;
   const regexComments = /^.{1,255}$/;
-
-  console.log(errors);
 
   if (!form.name.trim()) {
     errors.name = "El campo 'Nombre' es requerido.";
@@ -73,6 +73,23 @@ const maxLength = {
 };
 
 export const Contact = () => {
+  const [responsiveMaps, setResponsiveMaps] = useState(false);
+
+  useEffect(() => {
+    const breakpoint = window.matchMedia("(min-width: 1024px)");
+
+    const responsive = (e: MediaQueryListEvent) => {
+      setResponsiveMaps(e.matches);
+    };
+
+    breakpoint.addEventListener("change", responsive);
+    setResponsiveMaps(breakpoint.matches);
+
+    return () => {
+      breakpoint.removeEventListener("change", responsive);
+    };
+  }, []);
+
   const {
     form,
     errors,
@@ -88,10 +105,16 @@ export const Contact = () => {
       <ContentMain className="section">
         <h2>Contacto</h2>
         <div>
-          <h4>Ponte en contacto con nosotros</h4>
-          <p>
-            José Inocente Lugo Pte., Col del Centro, 40660 Cd Altamirano, Gro.
-          </p>
+          <ContentInfo>
+            <h4>Ponte en contacto con nosotros</h4>
+            <p>
+              <b>Dirección:</b> José Inocente Lugo Pte., Col del Centro, 40660
+              Cd Altamirano, Gro.
+            </p>
+            <p>
+              <b>Teléfono:</b> 767-102-8887
+            </p>
+          </ContentInfo>
           <ContactForm>
             <form onSubmit={handleSubmit}>
               <label htmlFor="name">Tu nombre</label>
@@ -137,9 +160,29 @@ export const Contact = () => {
               <input type="submit" value="Enviar" />
             </form>
             {loading ? <Loading /> : null}
-            {response ? <Message /> : null}
+            <AnimatePresence>{response ? <Message /> : null}</AnimatePresence>
           </ContactForm>
         </div>
+        <ContentMainMaps>
+          <h4>Nuestra ubicación:</h4>
+          <MapContainer>
+            {responsiveMaps ? (
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d236.66791288867242!2d-100.66822294539264!3d18.36157650358221!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84332d8390dc2823%3A0xdb0b64b887440a90!2sTapicer%C3%ADa%20Miryta!5e0!3m2!1ses-419!2smx!4v1693352869049!5m2!1ses-419!2smx"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            ) : (
+              <div>
+                <a href="https://goo.gl/maps/6eKPnKZxACtk5m548" target="_blank">
+                  Ver ubicación
+                </a>
+              </div>
+            )}
+          </MapContainer>
+        </ContentMainMaps>
       </ContentMain>
     </section>
   );
@@ -152,6 +195,7 @@ const ContactForm = styled.div`
   input[type="email"],
   textarea {
     border: thin solid #000;
+    font-family: "Raleway", sans-serif;
     padding: 0.75rem;
     margin-bottom: 1rem;
     outline: none;
@@ -168,6 +212,7 @@ const ContactForm = styled.div`
   input[type="submit"],
   input[type="reset"] {
     display: block;
+    font-family: "Raleway", sans-serif;
     width: 100%;
     padding: 1rem 1rem;
     margin: 0 0.5rem 0 0;
@@ -209,5 +254,48 @@ const ContactForm = styled.div`
 
   textarea:focus {
     background-color: #f4f4f4;
+  }
+`;
+
+const ContentInfo = styled.div`
+  h4 {
+    margin: 1.5rem 0 0 0;
+  }
+
+  p {
+    margin: 1.5rem 0 0 0;
+  }
+`;
+
+const ContentMainMaps = styled.div`
+  h4 {
+    margin: 0;
+  }
+`;
+
+const MapContainer = styled.div`
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: #000;
+  }
+
+  @media screen and (min-width: 1024px) {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+    margin: 2rem 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   }
 `;

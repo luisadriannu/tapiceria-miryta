@@ -21,6 +21,26 @@ export const About = () => {
             Molestiae asperiores repudiandae dignissimos.
           </p>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </ContentMain>
     </section>
   );
