@@ -38,8 +38,8 @@ export const MenuItem: React.FC<Toggle> = ({ toggle }) => {
         </NavLink>
       </li>
       <li>
-        <NavLink onClick={toggle} style={style} to="/">
-          Trabajos
+        <NavLink onClick={toggle} style={style} to="/trabajos-realizados">
+          Trabajos realizados
         </NavLink>
       </li>
       <li>

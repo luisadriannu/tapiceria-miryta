@@ -117,3 +117,5 @@ const Card = styled.div`
     }
   }
 `;
+
+export { ContentCards, Card };
