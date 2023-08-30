@@ -53,23 +53,14 @@ h4 {
 }
 
 /* ********** Utilities ********** */
-.container {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .section {
   padding: 0 20px;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  background: #000;
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .d-none {

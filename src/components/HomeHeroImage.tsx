@@ -52,8 +52,18 @@ const BackgroundImage = styled.article<BackgroundImageProps>`
     margin-left: 1rem;
 
     p {
+      font-size: clamp(1.06rem, calc(1.03rem + 0.19vw), 1.25rem);
       color: #fff;
       margin: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+
+    div {
+      width: 50%;
+      margin-left: 0;
     }
   }
 `;

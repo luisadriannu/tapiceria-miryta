@@ -2,8 +2,8 @@ import { ContentMain } from "./Services";
 
 export const About = () => {
   return (
-    <section className="container">
-      <ContentMain className="section">
+    <section className="section">
+      <ContentMain className="container">
         <h2>Acerca de</h2>
         <div>
           <p>

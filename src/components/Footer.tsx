@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { NavLink } from "react-router-dom";
 
 export const Footer = () => {
   const styleFooter = { backgroundColor: "#000", color: "#fff" };
@@ -15,37 +14,30 @@ export const Footer = () => {
             </p>
             <p>Teléfono: 767-102-8887</p>
           </div>
+          <SocialMedia>
+            <div>
+              <a href="https://www.facebook.com/adrian.nunez.526">
+                <i className="bi bi-facebook"></i>
+              </a>
+            </div>
+            <div>
+              <a href="https://api.whatsapp.com/send?phone=7671028887">
+                <i className="bi bi-whatsapp"></i>
+              </a>
+            </div>
+          </SocialMedia>
         </Info>
-        <SocialMedia>
-          <div>
-            <a href="https://www.facebook.com/adrian.nunez.526">
-              <i className="bi bi-facebook"></i>
-            </a>
-          </div>
-          <div>
-            <a href="https://api.whatsapp.com/send?phone=7671028887">
-              <i className="bi bi-whatsapp"></i>
-            </a>
-          </div>
-        </SocialMedia>
-        <Links>
-          <div>
-            <NavLink to="/acerca">Acerca de</NavLink>
-          </div>
-          <div>
-            <NavLink to="/servicios">Servicios</NavLink>
-          </div>
-          <div>
-            <NavLink to="/contacto">Contacto</NavLink>
-          </div>
-        </Links>
       </MainContent>
     </footer>
   );
 };
 
 const MainContent = styled.article`
-  padding: 1.5rem;
+  padding: 5vw;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 const Info = styled.div`
@@ -58,19 +50,10 @@ const Info = styled.div`
 const SocialMedia = styled.div`
   display: flex;
   gap: 10px;
+  margin-top: 1.5rem;
   i {
     color: #fff;
-  }
-`;
 
-const Links = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 1rem 0 0;
-
-  a {
-    text-decoration: none;
-    color: #fff;
+    font-size: 1.5rem;
   }
 `;

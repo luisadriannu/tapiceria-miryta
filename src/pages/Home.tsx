@@ -12,8 +12,8 @@ const scrollTop = () => {
 export const Home = () => {
   return (
     <>
-      <section className="container">
-        <HomeMainContent className="section">
+      <section className="section">
+        <HomeMainContent className="container">
           <h1>Tapiceria Miryta</h1>
           <div>
             <NavLink to="/">
@@ -38,7 +38,7 @@ export const Home = () => {
       </Text>
       <SomeWorks />
       <section>
-        <AdaptablePrices className="section">
+        <AdaptablePrices>
           <h2>Precio adaptables</h2>
           <p>Contamos con ofertas y precios adaptables segun tu presupuesto.</p>
           <p>
@@ -104,7 +104,6 @@ const AdaptablePrices = styled.section`
     justify-content: center;
 
     a {
-      width: 50%;
       padding: 1rem 1rem;
       display: inline-block;
       background-color: #000;
@@ -119,3 +118,5 @@ const AdaptablePrices = styled.section`
     }
   }
 `;
+
+export { AdaptablePrices };

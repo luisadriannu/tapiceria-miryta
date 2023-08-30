@@ -101,12 +101,11 @@ export const Contact = () => {
   } = useForm(initialForm, validationsForm);
 
   return (
-    <section className="container">
-      <ContentMain className="section">
+    <section className="section">
+      <ContentMain className="container">
         <h2>Contacto</h2>
-        <div>
+        <ContentData>
           <ContentInfo>
-            <h4>Ponte en contacto con nosotros</h4>
             <p>
               <b>Dirección:</b> José Inocente Lugo Pte., Col del Centro, 40660
               Cd Altamirano, Gro.
@@ -114,9 +113,33 @@ export const Contact = () => {
             <p>
               <b>Teléfono:</b> 767-102-8887
             </p>
+            <ContentMainMaps>
+              <h4>Nuestra ubicación:</h4>
+              <MapContainer>
+                {responsiveMaps ? (
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d236.66791288867242!2d-100.66822294539264!3d18.36157650358221!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84332d8390dc2823%3A0xdb0b64b887440a90!2sTapicer%C3%ADa%20Miryta!5e0!3m2!1ses-419!2smx!4v1693352869049!5m2!1ses-419!2smx"
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                ) : (
+                  <div>
+                    <a
+                      href="https://goo.gl/maps/6eKPnKZxACtk5m548"
+                      target="_blank"
+                    >
+                      Ver ubicación
+                    </a>
+                  </div>
+                )}
+              </MapContainer>
+            </ContentMainMaps>
           </ContentInfo>
           <ContactForm>
             <form onSubmit={handleSubmit}>
+              <h4>Ponte en contacto con nosotros</h4>
               <label htmlFor="name">Tu nombre</label>
               <input
                 type="text"
@@ -162,34 +185,26 @@ export const Contact = () => {
             {loading ? <Loading /> : null}
             <AnimatePresence>{response ? <Message /> : null}</AnimatePresence>
           </ContactForm>
-        </div>
-        <ContentMainMaps>
-          <h4>Nuestra ubicación:</h4>
-          <MapContainer>
-            {responsiveMaps ? (
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d236.66791288867242!2d-100.66822294539264!3d18.36157650358221!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84332d8390dc2823%3A0xdb0b64b887440a90!2sTapicer%C3%ADa%20Miryta!5e0!3m2!1ses-419!2smx!4v1693352869049!5m2!1ses-419!2smx"
-                width="100%"
-                height="100%"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            ) : (
-              <div>
-                <a href="https://goo.gl/maps/6eKPnKZxACtk5m548" target="_blank">
-                  Ver ubicación
-                </a>
-              </div>
-            )}
-          </MapContainer>
-        </ContentMainMaps>
+        </ContentData>
       </ContentMain>
     </section>
   );
 };
 
+const ContentData = styled.div`
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+`;
+
 const ContactForm = styled.div`
-  padding: 48px 0;
+  padding: 28px 0;
+
+  h4 {
+    margin: 0 0 1.5rem 0;
+  }
 
   input[type="text"],
   input[type="email"],
@@ -255,32 +270,37 @@ const ContactForm = styled.div`
   textarea:focus {
     background-color: #f4f4f4;
   }
+
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+    padding: 0 0 1.5rem 0;
+  }
 `;
 
 const ContentInfo = styled.div`
-  h4 {
+  p {
     margin: 1.5rem 0 0 0;
   }
 
-  p {
-    margin: 1.5rem 0 0 0;
+  @media screen and (min-width: 1024px) {
+    width: 100%;
   }
 `;
 
 const ContentMainMaps = styled.div`
+  margin-top: 1.5rem;
+
   h4 {
     margin: 0;
   }
 `;
 
 const MapContainer = styled.div`
-  min-height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  a {
-    color: #000;
+  div {
+    margin-top: 1.5rem;
+    a {
+      color: #000;
+    }
   }
 
   @media screen and (min-width: 1024px) {

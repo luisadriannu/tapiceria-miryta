@@ -149,3 +149,12 @@
   pointer-events: none;
   padding: 0 1rem;
 }
+
+/* ***** SomeWorks ***** */
+.content-works {
+  padding: 8vw 0;
+}
+
+.bg-color-secondary {
+  background-color: #fafbf3;
+}
