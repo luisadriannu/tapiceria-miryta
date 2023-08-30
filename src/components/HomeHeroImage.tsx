@@ -5,7 +5,7 @@ interface BackgroundImageProps {
   $image: string;
 }
 
-const HomeImage = `${GetImageUrl("home-image-2")}`;
+const HomeImage = `${GetImageUrl("home-image")}`;
 console.log(typeof HomeImage);
 
 export const HomeHeroImage = () => {
