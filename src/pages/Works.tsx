@@ -14,7 +14,7 @@ export const Works = () => {
           <p>Puedes ver por:</p>
           <List>
             <Link to="/trabajos-realizados/salas">Salas</Link>
-            <Link to="/trabajos-realizados/automoviles">automoviles</Link>
+            <Link to="/trabajos-realizados/automoviles">Automóviles</Link>
             <Link to="/trabajos-realizados/sillas">Sillas</Link>
           </List>
           <Outlet />
@@ -26,18 +26,16 @@ export const Works = () => {
 
 const List = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 10px;
   margin-bottom: 1.5rem;
-  background-color: #dadccd;
+  background-color: #000;
   padding: 0.5rem 0;
 
   a {
-    background-color: #fff;
+    color: #fff;
     padding: 0.25rem;
     display: block;
-    color: #000;
-    text-decoration: none;
   }
 `;
