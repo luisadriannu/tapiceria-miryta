@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { ContentMain } from "./Services";
-import { WorksHalls } from "../components/WorksHalls";
+import { Link, Outlet } from "react-router-dom";
 
 export const Works = () => {
   return (
@@ -13,12 +13,12 @@ export const Works = () => {
           </h4>
           <p>Puedes ver por:</p>
           <List>
-            <a href="#">Salas</a>
-            <a href="#">Automoviles</a>
-            <a href="#">Sillas</a>
+            <Link to="/trabajos-realizados/salas">Salas</Link>
+            <Link to="/trabajos-realizados/automoviles">automoviles</Link>
+            <Link to="/trabajos-realizados/sillas">Sillas</Link>
           </List>
+          <Outlet />
         </div>
-        <WorksHalls />
       </ContentMain>
     </section>
   );
