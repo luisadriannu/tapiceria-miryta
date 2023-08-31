@@ -8,6 +8,9 @@ import { About } from "./pages/About";
 import { Works } from "./pages/Works";
 import { WorksHalls } from "./components/WorksHalls";
 import { WorksChairs } from "./components/WorksChairs";
+import { WorksAutomotive } from "./components/WorksAutomotive";
+import { WorksMotorcycles } from "./components/WorksMotorcycles";
+import { WorksHome } from "./components/WorksHome";
 
 function App() {
   return (
@@ -18,11 +21,19 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/servicios" element={<Services />} />
           <Route path="/trabajos-realizados" element={<Works />}>
-            <Route index element={<WorksHalls />}></Route>
+            <Route index element={<WorksHome />}></Route>
             <Route path="/trabajos-realizados/salas" element={<WorksHalls />} />
+            <Route
+              path="/trabajos-realizados/automotriz"
+              element={<WorksAutomotive />}
+            />
             <Route
               path="/trabajos-realizados/sillas"
               element={<WorksChairs />}
+            />
+            <Route
+              path="/trabajos-realizados/motos"
+              element={<WorksMotorcycles />}
             />
           </Route>
           <Route path="/acerca" element={<About />} />

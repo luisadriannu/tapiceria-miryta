@@ -1,14 +1,13 @@
-import { ContentCards, Card } from "../components/SomeWorks";
-import trabajo2 from "../assets/some-work-2.jpg";
+import { ContentCards, Card } from "./SomeWorks";
 import { GetImageUrl } from "../helpers/GetImageUrl";
-import { styled } from "styled-components";
 import { LoaderWorks } from "./LoaderWorks";
 import { useLoader } from "../hooks/useLoader";
+import { ContentButton } from "./WorksHalls";
 
 const data = [
   {
     id: 1,
-    image: `${GetImageUrl("work-hall-4")}`,
+    image: `${GetImageUrl("work-chair-1")}`,
     title: "Tapizado de sillon",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -16,7 +15,7 @@ const data = [
   },
   {
     id: 2,
-    image: trabajo2,
+    image: `${GetImageUrl("work-chair-2")}`,
     title: "Tapizado de sillon",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -24,7 +23,7 @@ const data = [
   },
   {
     id: 3,
-    image: `${GetImageUrl("work-hall-5")}`,
+    image: `${GetImageUrl("work-chair-3")}`,
     title: "Tapizado de silla con botones",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -32,7 +31,7 @@ const data = [
   },
   {
     id: 4,
-    image: `${GetImageUrl("work-hall-1")}`,
+    image: `${GetImageUrl("work-chair-4")}`,
     title: "Tapizado y arreglado de sillas de comedor",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -40,7 +39,7 @@ const data = [
   },
   {
     id: 5,
-    image: `${GetImageUrl("work-hall-2")}`,
+    image: `${GetImageUrl("work-chair-5")}`,
     title: "Tapizado y arreglado de sillas de comedor",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -51,7 +50,7 @@ const data = [
 const moreData = [
   {
     id: 6,
-    image: `${GetImageUrl("work-hall-3")}`,
+    image: `${GetImageUrl("work-chair-6")}`,
     title: "Tapizado y arreglado de sillas de comedor",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -59,7 +58,7 @@ const moreData = [
   },
   {
     id: 7,
-    image: `${GetImageUrl("work-hall-6")}`,
+    image: `${GetImageUrl("work-chair-7")}`,
     title: "Tapizado y arreglado de sillas de comedor",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -67,7 +66,7 @@ const moreData = [
   },
   {
     id: 8,
-    image: `${GetImageUrl("work-hall-7")}`,
+    image: `${GetImageUrl("work-chair-8")}`,
     title: "Tapizado y arreglado de sillas de comedor",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -75,7 +74,7 @@ const moreData = [
   },
   {
     id: 9,
-    image: `${GetImageUrl("work-hall-8")}`,
+    image: `${GetImageUrl("work-chair-9")}`,
     title: "Tapizado y arreglado de sillas de comedor",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -83,7 +82,7 @@ const moreData = [
   },
   {
     id: 10,
-    image: `${GetImageUrl("work-hall-9")}`,
+    image: `${GetImageUrl("work-chair-10")}`,
     title: "Tapizado y arreglado de sillas de comedor",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
@@ -95,12 +94,12 @@ const styleh3 = {
   margin: "0 0 1.5rem 0",
 };
 
-export const WorksHalls = () => {
+export const WorksMotorcycles = () => {
   const { loadData, loading, hiddeButton, loadWorks } = useLoader();
 
   return (
     <article className="container">
-      <h3 style={styleh3}>Salas</h3>
+      <h3 style={styleh3}>Motos</h3>
       <ContentCards>
         {data.map((item, index) => {
           return (
@@ -138,26 +137,3 @@ export const WorksHalls = () => {
     </article>
   );
 };
-
-const ContentButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 0 1.5rem 0;
-
-  button {
-    padding: 1rem 1rem;
-    display: inline-block;
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
-    line-height: 1;
-    text-transform: none;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-  }
-`;
-
-export { ContentButton };

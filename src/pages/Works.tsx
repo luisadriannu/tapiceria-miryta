@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import { ContentMain } from "./Services";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
+import "../components/Styles.css";
+import { ScrollProgress } from "../components/ScrollProgress";
 
 export const Works = () => {
   return (
@@ -11,15 +13,45 @@ export const Works = () => {
           <h4>
             Aqui podrás ver algunos de nuestros trabajos que hemos realizado
           </h4>
-          <p>Puedes ver por:</p>
+          <p>Puedes ver por las siguientes secciones:</p>
           <List>
-            <Link to="/trabajos-realizados/salas">Salas</Link>
-            <Link to="/trabajos-realizados/automoviles">Automóviles</Link>
-            <Link to="/trabajos-realizados/sillas">Sillas</Link>
+            <div>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                to="/trabajos-realizados/salas"
+              >
+                Salas
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                to="/trabajos-realizados/automotriz"
+              >
+                Autos
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                to="/trabajos-realizados/sillas"
+              >
+                Sillas
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                className={({ isActive }) => (isActive ? "active-link" : "")}
+                to="/trabajos-realizados/motos"
+              >
+                Motos
+              </NavLink>
+            </div>
           </List>
-          <Outlet />
         </div>
       </ContentMain>
+      <Outlet />
+      <ScrollProgress />
     </section>
   );
 };
@@ -28,14 +60,26 @@ const List = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 10px;
   margin-bottom: 1.5rem;
   background-color: #000;
   padding: 0.5rem 0;
+  border-radius: 100px;
 
-  a {
-    color: #fff;
-    padding: 0.25rem;
-    display: block;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 0.25rem;
+
+    a {
+      text-align: center;
+      width: 100%;
+      color: #fff;
+      padding: 0.5rem;
+      text-decoration: none;
+      border-radius: 100px;
+    }
   }
 `;

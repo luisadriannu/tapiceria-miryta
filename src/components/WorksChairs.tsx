@@ -98,7 +98,7 @@ export const WorksChairs = () => {
   const { loadData, loading, hiddeButton, loadWorks } = useLoader();
 
   return (
-    <div>
+    <article className="container">
       <h3 style={styleh3}>Sillas</h3>
       <ContentCards>
         {data.map((item, index) => {
@@ -134,6 +134,6 @@ export const WorksChairs = () => {
           )}
         </ContentCards>
       )}
-    </div>
+    </article>
   );
 };
