@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
 import { HomeHeroImage } from "../components/HomeHeroImage";
 import { SomeWorks } from "../components/SomeWorks";
+import { ScrollProgress } from "../components/ScrollProgress";
 
 const scrollTop = () => {
   scrollTo({
@@ -16,7 +17,7 @@ export const Home = () => {
         <HomeMainContent className="container">
           <h1>Tapiceria Miryta</h1>
           <div>
-            <NavLink to="/">
+            <NavLink onClick={scrollTop} to="/trabajos-realizados">
               Explora nuestros trabajos <i className="bi bi-arrow-right"></i>
             </NavLink>
           </div>
@@ -30,7 +31,7 @@ export const Home = () => {
             reconocidos en toda la región.
           </p>
           <div>
-            <NavLink to="/">
+            <NavLink onClick={scrollTop} to="/trabajos-realizados">
               Explora nuestros trabajos <i className="bi bi-arrow-right"></i>
             </NavLink>
           </div>
@@ -51,6 +52,7 @@ export const Home = () => {
           </div>
         </AdaptablePrices>
       </section>
+      <ScrollProgress />
     </>
   );
 };

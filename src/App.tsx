@@ -11,6 +11,7 @@ import { WorksChairs } from "./components/WorksChairs";
 import { WorksAutomotive } from "./components/WorksAutomotive";
 import { WorksMotorcycles } from "./components/WorksMotorcycles";
 import { WorksHome } from "./components/WorksHome";
+import Error404 from "./pages/Error404";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           </Route>
           <Route path="/acerca" element={<About />} />
           <Route path="/contacto" element={<Contact />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
         <Footer />
       </HashRouter>

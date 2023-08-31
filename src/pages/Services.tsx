@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
 import { AdaptablePrices } from "./Home";
+import { ScrollProgress } from "../components/ScrollProgress";
 
 const scrollTop = () => {
   scrollTo({
@@ -89,6 +90,7 @@ export const Services = () => {
           </div>
         </AdaptablePrices>
       </section>
+      <ScrollProgress />
     </>
   );
 };

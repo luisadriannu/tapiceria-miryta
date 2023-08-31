@@ -33,7 +33,7 @@ export const Footer = () => {
 };
 
 const MainContent = styled.article`
-  padding: 5vw;
+  padding: 4rem 5vw;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -53,7 +53,6 @@ const SocialMedia = styled.div`
   margin-top: 1.5rem;
   i {
     color: #fff;
-
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 `;

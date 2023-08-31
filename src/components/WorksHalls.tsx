@@ -99,7 +99,7 @@ export const WorksHalls = () => {
   const { loadData, loading, hiddeButton, loadWorks } = useLoader();
 
   return (
-    <article className="container">
+    <article className="container mb">
       <h3 style={styleh3}>Salas</h3>
       <ContentCards>
         {data.map((item, index) => {

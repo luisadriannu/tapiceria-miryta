@@ -60,17 +60,18 @@ const List = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 1.5rem;
   background-color: #000;
   padding: 0.5rem 0;
   border-radius: 100px;
+  max-width: 768px;
+  margin: 1.8rem auto 1.5rem auto;
 
   div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100px;
     padding: 0 0.25rem;
 
     a {
@@ -80,6 +81,13 @@ const List = styled.div`
       padding: 0.5rem;
       text-decoration: none;
       border-radius: 100px;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    flex-wrap: wrap;
+
+    div {
+      width: auto;
     }
   }
 `;

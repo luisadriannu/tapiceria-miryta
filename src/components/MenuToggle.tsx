@@ -8,7 +8,6 @@ const Path: React.FC<PathProps> = (props) => (
     fill="transparent"
     strokeWidth="3"
     stroke="hsl(0, 0%, 100%)"
-    // stroke="hsl(0, 0%, 18%)"
     strokeLinecap="round"
     {...props}
   />
