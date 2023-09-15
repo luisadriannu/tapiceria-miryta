@@ -12,35 +12,41 @@ import { WorksAutomotive } from "./components/WorksAutomotive";
 import { WorksMotorcycles } from "./components/WorksMotorcycles";
 import { WorksHome } from "./components/WorksHome";
 import Error404 from "./pages/Error404";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
     <>
       <HashRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/servicios" element={<Services />} />
-          <Route path="/trabajos-realizados" element={<Works />}>
-            <Route index element={<WorksHome />}></Route>
-            <Route path="/trabajos-realizados/salas" element={<WorksHalls />} />
-            <Route
-              path="/trabajos-realizados/automotriz"
-              element={<WorksAutomotive />}
-            />
-            <Route
-              path="/trabajos-realizados/sillas"
-              element={<WorksChairs />}
-            />
-            <Route
-              path="/trabajos-realizados/motos"
-              element={<WorksMotorcycles />}
-            />
-          </Route>
-          <Route path="/acerca" element={<About />} />
-          <Route path="/contacto" element={<Contact />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/servicios" element={<Services />} />
+            <Route path="/trabajos-realizados" element={<Works />}>
+              <Route index element={<WorksHome />}></Route>
+              <Route
+                path="/trabajos-realizados/salas"
+                element={<WorksHalls />}
+              />
+              <Route
+                path="/trabajos-realizados/automotriz"
+                element={<WorksAutomotive />}
+              />
+              <Route
+                path="/trabajos-realizados/sillas"
+                element={<WorksChairs />}
+              />
+              <Route
+                path="/trabajos-realizados/motos"
+                element={<WorksMotorcycles />}
+              />
+            </Route>
+            <Route path="/acerca" element={<About />} />
+            <Route path="/contacto" element={<Contact />} />
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </AnimatePresence>
         <Footer />
       </HashRouter>
     </>

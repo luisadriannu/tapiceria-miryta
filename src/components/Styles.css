@@ -194,10 +194,6 @@
   padding: 8vw 0;
 }
 
-.bg-color-secondary {
-  background-color: #fafbf3;
-}
-
 .active-link {
   color: #000 !important;
   background-color: #fff;
@@ -205,11 +201,11 @@
 
 /* ***** Scroll Progress ***** */
 .progress {
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   position: fixed;
-  left: 0.5rem;
-  bottom: 0.5rem;
+  right: 1rem;
+  bottom: 1rem;
   z-index: 994;
   margin: 0;
 }
@@ -231,13 +227,18 @@ circle {
 }
 
 .progress .indicator {
-  stroke: #000;
+  stroke: #252422;
 }
 
 .arrow-up {
   z-index: 998;
   position: absolute;
-  left: 1.53rem;
-  bottom: 1.5rem;
+  left: 1.4rem;
+  bottom: 1.3rem;
   pointer-events: none;
+}
+
+.active-link {
+  font-weight: bold;
+  background-color: #90e0ef;
 }

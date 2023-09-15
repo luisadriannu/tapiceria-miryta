@@ -4,47 +4,43 @@ import { GetImageUrl } from "../helpers/GetImageUrl";
 import { styled } from "styled-components";
 import { LoaderWorks } from "./LoaderWorks";
 import { useLoader } from "../hooks/useLoader";
+import { motion } from "framer-motion";
 
 const data = [
   {
     id: 1,
     image: `${GetImageUrl("work-hall-4")}`,
-    title: "Tapizado de sillon",
+    title: "Tapizado de sala",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+      "Tela para mueble color dorada, tela de alta calidad. Usted puede elegir la tela que más le guste.",
   },
   {
     id: 2,
     image: trabajo2,
-    title: "Tapizado de sillon",
+    title: "Tapizado de sillón",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+      "Tela para mueble rallado color vino. Se realizó reparación de brazos y se rellenó con esponja.",
   },
   {
     id: 3,
     image: `${GetImageUrl("work-hall-5")}`,
-    title: "Tapizado de silla con botones",
+    title: "Sillón capitonado",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+      "Tela para mueble color rojo. Se colocaron esponjas nuevas de alta calidad.",
   },
   {
     id: 4,
     image: `${GetImageUrl("work-hall-1")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
+    title: "Tapizado de sillón",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+      "Sillón tapizado en tela y vinil color chocolate. Se realizó relleno de esponja y reparación de madera que estaba en mal estado.",
   },
   {
     id: 5,
     image: `${GetImageUrl("work-hall-2")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
+    title: "Tapizado de sillón",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+      "Sillón tapizado en vinil capri color beige. Se recogió a domicilio y una vez terminado se llevó nuevamente a domicilio a su dueño.",
   },
 ];
 
@@ -52,42 +48,34 @@ const moreData = [
   {
     id: 6,
     image: `${GetImageUrl("work-hall-3")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
+    title: "Tapizado de sillón combinado",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+      "Tela para mueble grecas. Se realizó reparación y cambio de patas del conjunto de sillones.",
   },
   {
     id: 7,
     image: `${GetImageUrl("work-hall-6")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+    title: "Tapizado de sillón",
+    description: "Tela metálica color plata. Se realizó reparación de esponja.",
   },
   {
     id: 8,
     image: `${GetImageUrl("work-hall-7")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+    title: "Tapizado de sillón",
+    description: "Tela metálica color plata.",
   },
   {
     id: 9,
     image: `${GetImageUrl("work-hall-8")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+    title: "Tapizado de sillón",
+    description: "Tela metálica color plata.",
   },
   {
     id: 10,
     image: `${GetImageUrl("work-hall-9")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
+    title: "Tapizado sillon capitonado",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+      "Tela color verde sencilla. Se reparó la madera que venía en mal estado.",
   },
 ];
 
@@ -99,7 +87,17 @@ export const WorksHalls = () => {
   const { loadData, loading, hiddeButton, loadWorks } = useLoader();
 
   return (
-    <article className="container mb">
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.3,
+        delay: 0.1,
+        ease: "easeIn",
+      }}
+      exit={{ opacity: 0 }}
+      className="container mb"
+    >
       <h3 style={styleh3}>Salas</h3>
       <ContentCards>
         {data.map((item, index) => {
@@ -135,7 +133,7 @@ export const WorksHalls = () => {
           )}
         </ContentCards>
       )}
-    </article>
+    </motion.article>
   );
 };
 
@@ -148,8 +146,9 @@ const ContentButton = styled.div`
   button {
     padding: 1rem 1rem;
     display: inline-block;
-    background-color: #000;
-    color: #fff;
+    background-color: #ade8f4;
+    border-radius: 0.25rem;
+    border: none;
     font-weight: bold;
     font-size: 1rem;
     line-height: 1;

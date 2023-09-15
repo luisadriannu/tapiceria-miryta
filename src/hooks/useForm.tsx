@@ -54,7 +54,7 @@ export const useForm = (
     if (Object.keys(errors).length === 0) {
       setLoading(true);
       HelpHttp()
-        .post("https://formsubmit.co/ajax/luisadriannu13@gmail.com", {
+        .post("https://formsubmit.co/ajax/adrian.ane7@gmail.com", {
           body: JSON.stringify(form),
           headers: {
             "Content-Type": "application/json",

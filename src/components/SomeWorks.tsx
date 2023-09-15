@@ -1,56 +1,72 @@
 import { GetImageUrl } from "../helpers/GetImageUrl";
 import { styled } from "styled-components";
-import trabajo2 from "../assets/some-work-2.jpg";
 import { NavLink } from "react-router-dom";
 import "./Styles.css";
+import { motion } from "framer-motion";
 
 const data = [
   {
     id: 1,
     image: `${GetImageUrl("some-work-1")}`,
     title: "Tapizado de sillon",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+    description: "Tela para mueble fondo en círculos. Tela de alta calidad.",
+    link: "/trabajos-realizados/salas",
   },
   {
     id: 2,
-    image: trabajo2,
-    title: "Tapizado de sillon",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+    image: `${GetImageUrl("work-automotive-4")}`,
+    title: "Asiento para camioneta Ford",
+    description: "Tapizado en tela automotriz color gris medio.",
+    link: "/trabajos-realizados/automotriz",
   },
   {
     id: 3,
     image: `${GetImageUrl("some-work-3")}`,
-    title: "Tapizado de silla con botones",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+    title: "Silla para reina",
+    description: "Tela metálica color plata capitonado.",
+    link: "/trabajos-realizados/sillas",
   },
   {
     id: 4,
     image: `${GetImageUrl("some-work-4")}`,
-    title: "Tapizado y arreglado de sillas de comedor",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptate voluptas, veniam eveniet magnam expedita doloremque perferendis ducimus voluptatem",
-    link: "",
+    title: "Tapizado de sillas de comedor",
+    description: "Tapizado y pintado de silla, tela floreada.",
+    link: "/trabajos-realizados/sillas",
   },
 ];
 
+const scrollTop = () => {
+  window.scrollTo({
+    top: 0,
+  });
+};
+
 export const SomeWorks = () => {
   return (
-    <MainContentWorks className="bg-color-secondary section">
+    <MainContentWorks className="section">
       <article className="container content-works">
-        <div>
-          <h2>Algunos de nuestros trabajos</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.4,
+            ease: "easeIn",
+          }}
+          viewport={{ once: true }}
+        >
           <div>
+            <h2>Algunos de nuestros trabajos</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde
-              voluptate voluptas, veniam eveniet magnam expedita doloremque
-              perferendis ducimus voluptatem, tempore ipsam ipsum illum modi
-              neque fugit rerum. Quis, corrupti officia?
+              Aquí podrás ver algunos de nuestros trabajos que hemos realizado,
+              si alguno de estos trabajos te interesa no dudes mandarnos un
+              mensaje en la sección de {""}
+              <NavLink to="/contacto">
+                <b>Contacto</b>
+              </NavLink>
+            </p>
+            <p>
+              Usted es libre de elegir el color de tela o plástico que más le
+              guste, dependiendo del tipo y color que elija será el presupuesto.
             </p>
           </div>
           <ContentCards>
@@ -61,13 +77,15 @@ export const SomeWorks = () => {
                   <h4>{item.title}</h4>
                   <p>{item.description}</p>
                   <div>
-                    <NavLink to={item.link}>Ver más detalles</NavLink>
+                    <NavLink onClick={scrollTop} to={item.link}>
+                      Ver más detalles
+                    </NavLink>
                   </div>
                 </Card>
               );
             })}
           </ContentCards>
-        </div>
+        </motion.div>
       </article>
     </MainContentWorks>
   );
@@ -78,6 +96,7 @@ const MainContentWorks = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #d6f2f8;
 
   h2 {
     font-weight: 900;
@@ -86,12 +105,16 @@ const MainContentWorks = styled.section`
 
   p {
     margin: 0 0 1.5rem 0;
+
+    a {
+      color: #000;
+    }
   }
 `;
 
 const ContentCards = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
 
   @media screen and (min-width: 768px) {
@@ -102,12 +125,16 @@ const ContentCards = styled.div`
 const Card = styled.div`
   padding: 0 0 1.25rem;
 
+  img {
+    border-radius: 0.25rem;
+  }
+
   h4 {
     margin: 0.75rem 0 0;
   }
 
   p {
-    margin: 1.5rem 0 0 0;
+    margin: 1rem 0 0 0;
   }
 
   div {

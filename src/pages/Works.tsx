@@ -3,15 +3,25 @@ import { ContentMain } from "./Services";
 import { Outlet, NavLink } from "react-router-dom";
 import "../components/Styles.css";
 import { ScrollProgress } from "../components/ScrollProgress";
+import { motion } from "framer-motion";
 
 export const Works = () => {
   return (
-    <section className="section">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.5,
+        delay: 0.2,
+      }}
+      exit={{ opacity: 0 }}
+      className="section"
+    >
       <ContentMain className="container">
         <h2>Trabajos</h2>
         <div>
           <h4>
-            Aqui podrás ver algunos de nuestros trabajos que hemos realizado
+            Aquí podrás ver algunos de nuestros trabajos que hemos realizado
           </h4>
           <p>Puedes ver por las siguientes secciones:</p>
           <List>
@@ -52,7 +62,7 @@ export const Works = () => {
       </ContentMain>
       <Outlet />
       <ScrollProgress />
-    </section>
+    </motion.section>
   );
 };
 
@@ -60,11 +70,13 @@ const List = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #000;
+  background-color: #252422;
   padding: 0.5rem 0;
   border-radius: 100px;
   max-width: 768px;
   margin: 1.8rem auto 1.5rem auto;
+  position: sticky;
+  top: 75px;
 
   div {
     display: flex;

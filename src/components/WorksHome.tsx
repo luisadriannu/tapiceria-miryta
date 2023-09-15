@@ -2,16 +2,14 @@ import { styled } from "styled-components";
 
 export const WorksHome = () => {
   return (
-    <article>
-      <ContentHome>
-        <h2>Hecha un vistazo a nuestros trabajos</h2>
-        <p>Haz click en las secciones</p>
-      </ContentHome>
-    </article>
+    <ContentHome>
+      <h2>Hecha un vistazo a nuestros trabajos</h2>
+      <p>Haz click en las diferentes secciones</p>
+    </ContentHome>
   );
 };
 
-const ContentHome = styled.div`
+const ContentHome = styled.article`
   height: 50vh;
   display: flex;
   flex-direction: column;

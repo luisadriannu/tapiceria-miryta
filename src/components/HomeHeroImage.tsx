@@ -1,25 +1,32 @@
 import { GetImageUrl } from "../helpers/GetImageUrl";
 import { styled } from "styled-components";
+import { motion } from "framer-motion";
 
 interface BackgroundImageProps {
   $image: string;
 }
 
 const HomeImage = `${GetImageUrl("home-image")}`;
-console.log(typeof HomeImage);
 
 export const HomeHeroImage = () => {
   return (
     <ContentBackgroundImage>
       <BackgroundImage $image={HomeImage}>
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.3,
+            delay: 0.5,
+          }}
+        >
           <p>
             <i>
               Somos los mejores en tapicería en CD. Altamirano. Tenemos variedad
-              de telas y pieles que mas le sea de su agrado
+              de telas y pieles que más le sea de su agrado.
             </i>
           </p>
-        </div>
+        </motion.div>
       </BackgroundImage>
     </ContentBackgroundImage>
   );
@@ -55,6 +62,7 @@ const BackgroundImage = styled.article<BackgroundImageProps>`
       font-size: clamp(1.06rem, calc(1.03rem + 0.19vw), 1.25rem);
       color: #fff;
       margin: 0;
+      line-height: 1.5rem;
     }
   }
 

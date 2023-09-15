@@ -16,7 +16,7 @@ interface Toggle {
 }
 
 export const MenuItem: React.FC<Toggle> = ({ toggle }) => {
-  const style = { color: "#fff" };
+  const style = { color: "#000", fontWeight: "bold" };
   return (
     <motion.ul variants={variants}>
       <li>

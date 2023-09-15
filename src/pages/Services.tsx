@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { NavLink } from "react-router-dom";
 import { AdaptablePrices } from "./Home";
-import { ScrollProgress } from "../components/ScrollProgress";
+import { motion } from "framer-motion";
 
 const scrollTop = () => {
   scrollTo({
@@ -12,76 +12,76 @@ const scrollTop = () => {
 export const Services = () => {
   return (
     <>
-      <section className="section">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.2,
+        }}
+        exit={{ opacity: 0 }}
+        className="section"
+      >
         <ContentMain className="container">
           <h2>Servicios</h2>
           <div>
-            <h4>En tapicería Miryta ofrecemos los siguientes servicios:</h4>
+            <h4>En tapicería Miryta contamos con los siguientes servicios:</h4>
           </div>
           <ServicesDescription>
             <div>
-              <h4>Tapizado de automóvil</h4>
+              <h5>Tapizado de automóvil</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                placeat obcaecati voluptate unde sapiente eligendi? Inventore,
-                animi iure. Odit, eos quibusdam quasi ipsa laboriosam
-                exercitationem sapiente reiciendis possimus. Ullam,
-                necessitatibus.
+                Contamos con reparación y tapicería en general de los autos,
+                podemos reparar y tapizar lo que son:{" "}
+                <b>
+                  <u>toldos</u>
+                </b>
+                ,{" "}
+                <b>
+                  <u>asientos</u>
+                </b>
+                ,{" "}
+                <b>
+                  <u>alfombra</u>
+                </b>
+                ,{" "}
+                <b>
+                  <u>tablero</u>
+                </b>{" "}
+                y todo lo que implique tapicería.
               </p>
 
-              <h4>Tapizado de asientos de moto</h4>
+              <h5>Tapizado de asientos de moto</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                placeat obcaecati voluptate unde sapiente eligendi? Inventore,
-                animi iure. Odit, eos quibusdam quasi ipsa laboriosam
-                exercitationem sapiente reiciendis possimus. Ullam,
-                necessitatibus.
+                Si tu asiento de moto ya se ve descarapelado, feo, o roto,
+                nosotros podemos reparar desde 0 de su asiento, incluso si no
+                tiene esponja o le hace falta, podemos repararlo sin problema.
               </p>
             </div>
             <div>
-              <h4>Reparación y tapizado de salas</h4>
+              <h5>Reparación y tapizado de salas</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                placeat obcaecati voluptate unde sapiente eligendi? Inventore,
-                animi iure. Odit, eos quibusdam quasi ipsa laboriosam
-                exercitationem sapiente reiciendis possimus. Ullam,
-                necessitatibus.
+                Contamos con tapizado completo de salas y reparación de asientos
+                de estos mismos, así como también los brazos y tapicería en
+                general. Tú eliges el tipo de tela o color que más te guste, y
+                nosotros nos encargamos de todo.
               </p>
 
-              <h4>Servicio a domicilio</h4>
+              <h5>Servicio a domicilio</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                placeat obcaecati voluptate unde sapiente eligendi? Inventore,
-                animi iure. Odit, eos quibusdam quasi ipsa laboriosam
-                exercitationem sapiente reiciendis possimus. Ullam,
-                necessitatibus.
+                Contamos con servicio a domicilio dentro de la localidad,
+                nosotros vamos por tu sala y te la llevamos en cuanto esté
+                listo.
               </p>
             </div>
           </ServicesDescription>
         </ContentMain>
-      </section>
-      <Clients>
-        <div className="container">
-          <h4>Algunos de nuestros clientes</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            laudantium et incidunt eveniet ea omnis laborum consequatur commodi,
-            est quos illum expedita reiciendis rerum natus dicta dolor in
-            similique consequuntur!
-          </p>
-          <p>Name of the client</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
-            fugiat dolor quo corporis consectetur odit blanditiis. Sed
-            laudantium doloremque possimus consequuntur quis temporibus
-            praesentium itaque illo impedit ad. Est, suscipit!
-          </p>
-        </div>
-      </Clients>
+      </motion.section>
+
       <section>
-        <AdaptablePrices>
+        <AdaptablePrices $backgroundColor="#d6f2f8">
           <h2>Traenos tu sala para transformarla</h2>
-          <p>Contamos con ofertas y precios adaptables segun tu presupuesto.</p>
+          <p>Contamos con ofertas y precios adaptables según tu presupuesto.</p>
           <p></p>
           <div>
             <NavLink onClick={scrollTop} to="/contacto">
@@ -90,16 +90,24 @@ export const Services = () => {
           </div>
         </AdaptablePrices>
       </section>
-      <ScrollProgress />
     </>
   );
 };
 
 const ContentMain = styled.article`
-  margin-top: 6rem;
+  margin-top: 5rem;
+
+  h5 {
+    margin: 0 0 1rem 0;
+    color: #00b4d8;
+  }
 
   h2 {
     margin: 0 0 1.5rem 0;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 
@@ -111,20 +119,21 @@ const ServicesDescription = styled.article`
   }
 
   p {
-    margin: 1.5rem 0 0 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  div {
+    width: 100%;
   }
 
   @media screen and (min-width: 768px) {
     display: flex;
     gap: 1.5rem;
+
+    div {
+      padding: 1rem;
+    }
   }
-`;
-
-const Clients = styled.section`
-  color: #fff;
-  background-color: #000;
-
-  padding: 1rem;
 `;
 
 export { ContentMain };

@@ -5,6 +5,7 @@ import { useForm } from "../hooks/useForm";
 import { ContentMain } from "./Services";
 import { styled } from "styled-components";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface ValidateForm {
   name: string;
@@ -101,7 +102,16 @@ export const Contact = () => {
   } = useForm(initialForm, validationsForm);
 
   return (
-    <section className="section">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.5,
+        delay: 0.2,
+      }}
+      exit={{ opacity: 0 }}
+      className="section"
+    >
       <ContentMain className="container">
         <h2>Contacto</h2>
         <ContentData>
@@ -111,7 +121,7 @@ export const Contact = () => {
               Cd Altamirano, Gro.
             </p>
             <p>
-              <b>Teléfono:</b> 767-102-8887
+              <b>Teléfono:</b> (+52) 767-102-8887
             </p>
             <ContentMainMaps>
               <h4>Nuestra ubicación:</h4>
@@ -145,7 +155,7 @@ export const Contact = () => {
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Alison Love"
+                placeholder="Juan Pérez"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={form.name}
@@ -170,7 +180,7 @@ export const Contact = () => {
               <textarea
                 name="comments"
                 id="comments"
-                placeholder="¿Qué te gustaría decir?"
+                placeholder="¿Qué te gustaría que te tapicemos?"
                 cols={maxLength.col}
                 rows={maxLength.row}
                 onBlur={handleBlur}
@@ -187,7 +197,7 @@ export const Contact = () => {
           </ContactForm>
         </ContentData>
       </ContentMain>
-    </section>
+    </motion.section>
   );
 };
 
@@ -210,7 +220,7 @@ const ContactForm = styled.div`
   input[type="email"],
   textarea {
     border: thin solid #000;
-    font-family: "Raleway", sans-serif;
+    font-family: "Open Sans", sans-serif;
     padding: 0.75rem;
     margin-bottom: 1rem;
     outline: none;
@@ -221,6 +231,7 @@ const ContactForm = styled.div`
     background-color: transparent;
     resize: none;
     font-size: inherit;
+    border-radius: 0.25rem;
   }
 
   button,
@@ -232,9 +243,10 @@ const ContactForm = styled.div`
     padding: 1rem 1rem;
     margin: 0 0.5rem 0 0;
     display: inline-block;
-    background-color: #000;
+    background-color: #90e0ef;
     border: none;
-    color: #fff;
+    color: #000;
+    border-radius: 0.25rem;
     font-weight: bold;
     font-size: 1rem;
     line-height: 1;
